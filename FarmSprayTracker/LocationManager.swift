@@ -5,6 +5,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let manager = CLLocationManager()
     @Published var currentLocation: CLLocationCoordinate2D?
     @Published var path: [CLLocationCoordinate2D] = []
+    @Published var overlapPath: [CLLocationCoordinate2D] = []
     @Published var isTracking = false
 
     override init() {

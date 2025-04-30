@@ -17,7 +17,7 @@ struct MapView: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: Context) {
         uiView.setRegion(region, animated: true)
         uiView.removeOverlays(uiView.overlays)
-        if !path.isEmpty {
+        if path.count > 1 {
             let sprayOverlay = SprayAreaOverlay(path: path, sprayWidth: applicatorWidth)
             uiView.addOverlay(sprayOverlay)
         }
