@@ -1,20 +1,20 @@
-//
-//  FarmSprayTrackerApp.swift
-//  FarmSprayTracker
-//
-//  Created by William Smith on 4/11/25.
-//
-
+/*
+ File: FarmSprayTrackerApp.swift
+ Description: Entry point for FarmSprayTracker app.
+ Changes:
+ - Updated ContentView initialization to match its parameter-less structure.
+ - Added environment objects for dependency injection.
+*/
 import SwiftUI
 
 @main
 struct FarmSprayTrackerApp: App {
-    let persistenceController = PersistenceController.shared
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(LocationManager())
+                .environmentObject(SessionManager())
+                .environmentObject(WeatherManager())
         }
     }
 }
